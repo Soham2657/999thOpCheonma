@@ -19,6 +19,7 @@ import Register from "../pages/Register";
 import Subscription from "../pages/Subscription";
 import AdminDashboard from "../pages/AdminDashboard";
 import CreateBlog from "../pages/CreateBlog";
+import UpdateBlog from "../pages/UpdateBlog";
 import NotFound from "../pages/NotFound";
 
 //protected route component
@@ -41,6 +42,7 @@ export default function AppRoutes() {
         
         <Route path="/admin" element={ <AdminRoute> <AdminDashboard /></AdminRoute> } />
         <Route path="/admin/create-blog" element={ <AdminRoute> <CreateBlog /></AdminRoute> } />
+        <Route path="/admin/edit-blog/:id" element={ <AdminRoute> <UpdateBlog /></AdminRoute> } />
 
         <Route path="*" element={<NotFound />} />
       </Routes>
