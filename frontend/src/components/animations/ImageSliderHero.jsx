@@ -14,6 +14,7 @@ FEATURES:
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 import slide1 from "../../assets/hero/slide1.png";
 import slide2 from "../../assets/hero/slide2.jpg";
 import slide3 from "../../assets/hero/slide3.jpg";
@@ -104,19 +105,19 @@ export default function ImageSliderHero() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
             >
-              <a
-                href="/blogs"
+              <Link
+                to="/blogs"
                 className="bg-purple-600 px-6 py-3 rounded-xl font-semibold hover:bg-purple-700 transition"
               >
                 Explore Blogs
-              </a>
+              </Link>
 
-              <a
-                href="/register"
+              <Link
+                to="/register"
                 className="bg-gray-900 px-6 py-3 rounded-xl font-semibold hover:bg-gray-800 transition"
               >
                 Join Now
-              </a>
+              </Link>
             </motion.div>
           </div>
         </motion.div>
