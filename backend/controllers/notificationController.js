@@ -111,9 +111,11 @@ exports.notifySubscribers = async (blogTitle, blogSlug) => {
       return;
     }
 
+    console.log(`Found ${subscriptions.length} active subscribers. Sending notifications...`);
+
     // prepare email content
     const subject = `New Blog Post: ${blogTitle}`;
-    const blogUrl = `${process.env.FRONTEND_URL || 'http://localhost:5173'}/blog/${blogSlug}`;
+    const blogUrl = `https://999th-op-cheonma.vercel.app/blogs/${blogSlug}`;
     
     const html = `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
@@ -131,20 +133,27 @@ exports.notifySubscribers = async (blogTitle, blogSlug) => {
         <p style="font-size: 12px; color: #666;">
           You're receiving this because you subscribed to ManhwaSensei notifications.
           <br>
-          <a href="${process.env.FRONTEND_URL || 'http://localhost:5173'}/notifications" style="color: #646cff;">Manage your subscription</a>
+          <a href="https://999th-op-cheonma.vercel.app/subscription" style="color: #646cff;">Manage your subscription</a>
         </p>
       </div>
     `;
 
     // send email to all subscribers
-    const emailPromises = subscriptions.map((sub) =>
-      sendEmail(sub.email, subject, html).catch((err) => {
-        console.error(`Failed to send email to ${sub.email}:`, err.message);
-      })
-    );
+    let successCount = 0;
+    let failureCount = 0;
 
-    await Promise.all(emailPromises);
-    console.log(`Notifications sent to ${subscriptions.length} subscribers`);
+    for (const sub of subscriptions) {
+      try {
+        await sendEmail(sub.email, subject, html);
+        successCount++;
+        console.log(`✓ Email sent to ${sub.email}`);
+      } catch (err) {
+        failureCount++;
+        console.error(`✗ Failed to send email to ${sub.email}:`, err.message);
+      }
+    }
+
+    console.log(`Notifications completed: ${successCount} sent, ${failureCount} failed`);
   } catch (err) {
     console.error("Error notifying subscribers:", err.message);
   }
