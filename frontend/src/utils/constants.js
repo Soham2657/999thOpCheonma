@@ -17,4 +17,10 @@ export const BLOG_CATEGORIES = [
   "Thriller",
   "School",
   "Slice of Life",
+  "Sci-fi",
+  "Supernatural",
+  "Sports",
+  "Historical",
+  "System",
+  "Tower"
 ];
