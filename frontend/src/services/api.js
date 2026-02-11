@@ -7,7 +7,7 @@ Also attaches JWT token automatically in every request.
 */
 import axios from "axios";
 const api = axios.create({
-  baseURL: "http://localhost:5000/api", // backend base url
+  baseURL: "https://nine99thopcheonma.onrender.com/api", // backend base url
 });
 
 // Automatically attach token before every request
