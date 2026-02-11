@@ -14,7 +14,12 @@ export const blogService = {
     getBlogBySlug: async(slug)=>{
         const res= await api.get(`/blogs/${slug}`);
         return res.data.blog;
-    } , 
+    },
+    // Get single blog by ID (for admin editing)
+    getBlogById: async(id)=>{
+        const res= await api.get(`/blogs/id/${id}`);
+        return res.data.blog;
+    },
         // Create new blog (admin only) 
     createBlog: async(data)=>{
         const res= await api.post("/blogs",data);

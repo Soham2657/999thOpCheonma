@@ -5,6 +5,7 @@ const {
   createBlog,
   getBlogs,
   getBlogBySlug,
+  getBlogById,
   updateBlog,
   deleteBlog,
 } = require("../controllers/blogController");
@@ -14,6 +15,7 @@ const admin = require("../middlewares/adminMiddleware");
 
 // public routes
 router.get("/", getBlogs);
+router.get("/id/:id", getBlogById);
 router.get("/:slug", getBlogBySlug);
 
 // admin protected routes

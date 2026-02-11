@@ -38,7 +38,7 @@ export default function UpdateBlog() {
     const fetchBlog = async () => {
       try {
         setLoading(true);
-        const blog = await blogService.getBlogBySlug(id); // Using ID as fallback
+        const blog = await blogService.getBlogById(id);
         if (!blog) {
           toast.error("Blog not found");
           navigate("/admin");
@@ -59,7 +59,7 @@ export default function UpdateBlog() {
       }
     };
     fetchBlog();
-  }, [id]);
+  }, [id, editor]);
 
   const handleUploadThumbnail = async (e) => {
     const file = e.target.files[0];

@@ -95,6 +95,20 @@ exports.getBlogBySlug=async (req,res,next)=>{
         next(error);
     }
 };
+
+//get single blog by ID (admin only)
+exports.getBlogById=async (req,res,next)=>{
+    try{
+        const {id}=req.params;
+        const blog=await Blog.findById(id).populate("author","name email");
+        if(!blog){
+            return res.status(404).json({message:"Blog not found"});
+        }   
+        res.json({blog});
+    }catch(error){          
+        next(error);
+    }
+};
 //update blog (admin only)
 exports.updateBlog=async (req,res,next)=>{
     try{
