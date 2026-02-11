@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+
+/* Optional: Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Default body styling */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
