@@ -1,9 +1,9 @@
-const transporter = require("../config/mail");
+const resend = require("../config/mail");
 
 //reusable email sender
 module.exports = (to, subject, html) => {
-    return transporter.sendMail({
-        from: process.env.EMAIL_USER,
+    return resend.emails.send({
+        from: process.env.RESEND_FROM || "999thOpcheonma <onboarding@resend.dev>",
         to,
         subject,
         html,
