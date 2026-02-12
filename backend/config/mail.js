@@ -1,5 +1,5 @@
-const { Resend } = require("resend");
+const sgMail = require("@sendgrid/mail");
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
-module.exports = resend;
+module.exports = sgMail;

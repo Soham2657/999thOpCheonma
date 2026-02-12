@@ -1,9 +1,9 @@
-const resend = require("../config/mail");
+const sgMail = require("../config/mail");
 
 //reusable email sender
 module.exports = (to, subject, html) => {
-    return resend.emails.send({
-        from: process.env.RESEND_FROM || "999thOpcheonma <onboarding@resend.dev>",
+    return sgMail.send({
+        from: process.env.SENDGRID_FROM || "noreply@manhwasensei.com",
         to,
         subject,
         html,
