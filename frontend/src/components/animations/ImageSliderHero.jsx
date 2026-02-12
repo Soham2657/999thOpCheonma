@@ -100,21 +100,21 @@ export default function ImageSliderHero() {
 
             {/* Buttons */}
             <motion.div
-              className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-6 md:mt-8 w-full max-w-sm sm:max-w-none"
+              className="flex flex-col sm:flex-row gap-4 mt-8 justify-center items-center"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
             >
               <Link
                 to="/blogs"
-                className="bg-purple-600 px-6 py-3 rounded-xl font-semibold hover:bg-purple-700 transition text-center"
+                className="bg-purple-600 px-6 py-3 rounded-xl font-semibold hover:bg-purple-700 transition"
               >
                 Explore Blogs
               </Link>
 
               <Link
                 to="/register"
-                className="bg-gray-900 px-6 py-3 rounded-xl font-semibold hover:bg-gray-800 transition text-center"
+                className="bg-gray-900 px-6 py-3 rounded-xl font-semibold hover:bg-gray-800 transition"
               >
                 Join Now
               </Link>
