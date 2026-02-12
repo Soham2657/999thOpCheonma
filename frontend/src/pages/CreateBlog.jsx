@@ -82,22 +82,23 @@ export default function CreateBlog() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-950 text-white p-6 max-w-4xl mx-auto">
-      <h1 className="text-3xl font-bold mb-6">Create Blog</h1>
+    <div className="min-h-screen bg-gray-950 text-white p-4 md:p-6">
+      <div className="max-w-4xl mx-auto">
+        <h1 className="text-2xl md:text-3xl font-bold mb-6">Create Blog</h1>
 
-      <form onSubmit={handleSubmit}>
-        {/* Blog Title */}
-        <input
-          type="text"
-          placeholder="Enter blog title..."
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          className="w-full p-3 rounded-xl bg-gray-900 text-white outline-none mb-4"
-        />
+        <form onSubmit={handleSubmit}>
+          {/* Blog Title */}
+          <input
+            type="text"
+            placeholder="Enter blog title..."
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            className="w-full p-3 rounded-xl bg-gray-900 text-white outline-none mb-4"
+          />
 
-        {/* Category Picker */}
-        <div className="mb-4">
-          <div className="flex gap-3 items-center">
+          {/* Category Picker */}
+          <div className="mb-4">
+            <div className="flex flex-col sm:flex-row gap-3 items-stretch sm:items-center">
             <select
               value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value)}
@@ -142,7 +143,7 @@ export default function CreateBlog() {
         {/* Tags Input */}
         <div className="mb-4">
           <label className="block text-gray-300 text-sm mb-2">Tags (main manhwa names)</label>
-          <div className="flex gap-3 items-center">
+          <div className="flex flex-col sm:flex-row gap-3 items-stretch sm:items-center">
             <input
               type="text"
               placeholder="Enter tag and press Add..."
@@ -192,7 +193,7 @@ export default function CreateBlog() {
         {/* Aliases Input */}
         <div className="mb-4">
           <label className="block text-gray-300 text-sm mb-2">Aliases (alternative scan names)</label>
-          <div className="flex gap-3 items-center">
+          <div className="flex flex-col sm:flex-row gap-3 items-stretch sm:items-center">
             <input
               type="text"
               placeholder="Enter alias and press Add..."
@@ -283,6 +284,7 @@ export default function CreateBlog() {
           Publish Blog
         </button>
       </form>
+      </div>
     </div>
   );
 }

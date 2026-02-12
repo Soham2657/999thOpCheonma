@@ -36,30 +36,32 @@ export default function BlogPage() {
       ? blog.categories.join(", ")
       : blog.category || "";
     return(
-        <div className="min-h-screen bg-gray-950 text-white p-6 max-w-4xl mx-auto">
-      <h1 className="text-4xl font-bold">{blog.title}</h1>
+        <div className="min-h-screen bg-gray-950 text-white p-4 md:p-6">
+      <div className="max-w-4xl mx-auto">
+        <h1 className="text-2xl md:text-4xl font-bold">{blog.title}</h1>
 
-      <p className="text-gray-400 mt-2">
-        {formatDate(blog.createdAt)}{categoryLabel ? ` • ${categoryLabel}` : ""}
-      </p>
+        <p className="text-gray-400 mt-2 text-sm md:text-base">
+          {formatDate(blog.createdAt)}{categoryLabel ? ` • ${categoryLabel}` : ""}
+        </p>
 
-      {/* Thumbnail */}
-      {blog.thumbnail && (
-        <img
-          src={blog.thumbnail}
-          alt={blog.title}
-          className="w-full h-87.5 object-cover rounded-2xl mt-6"
+        {/* Thumbnail */}
+        {blog.thumbnail && (
+          <img
+            src={blog.thumbnail}
+            alt={blog.title}
+            className="w-full h-48 md:h-96 object-cover rounded-2xl mt-6"
+          />
+        )}
+
+        {/* Blog content */}
+        <div
+          className="mt-6 text-gray-200 leading-relaxed prose prose-invert max-w-none"
+          dangerouslySetInnerHTML={{ __html: blog.content }}
         />
-      )}
 
-      {/* Blog content */}
-      <div
-        className="mt-6 text-gray-200 leading-relaxed"
-        dangerouslySetInnerHTML={{ __html: blog.content }}
-      />
-
-      {/* Comments */}
-      <CommentBox blogId={blog._id} />
+        {/* Comments */}
+        <CommentBox blogId={blog._id} />
+      </div>
     </div>
   );
 }

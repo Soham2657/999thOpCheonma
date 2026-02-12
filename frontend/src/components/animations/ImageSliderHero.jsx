@@ -57,7 +57,7 @@ export default function ImageSliderHero() {
   }, [slides.length]);
 
   return (
-    <div className="relative w-full h-[90vh] overflow-hidden">
+    <div className="relative w-full h-[60vh] md:h-[90vh] overflow-hidden">
       {/* AnimatePresence helps animate slide exit + entry */}
       <AnimatePresence mode="wait">
         <motion.div
@@ -79,9 +79,9 @@ export default function ImageSliderHero() {
           <div className="absolute inset-0 bg-black/60"></div>
 
           {/* Text Content */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 md:px-6">
             <motion.h1
-              className="text-4xl md:text-6xl font-extrabold text-white drop-shadow-lg"
+              className="text-2xl md:text-4xl lg:text-6xl font-extrabold text-white drop-shadow-lg"
               initial={{ y: 40, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8 }}
@@ -90,7 +90,7 @@ export default function ImageSliderHero() {
             </motion.h1>
 
             <motion.p
-              className="mt-4 text-lg md:text-2xl text-gray-200 max-w-3xl"
+              className="mt-4 text-base md:text-lg lg:text-2xl text-gray-200 max-w-3xl"
               initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -100,21 +100,21 @@ export default function ImageSliderHero() {
 
             {/* Buttons */}
             <motion.div
-              className="flex gap-4 mt-8"
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-6 md:mt-8 w-full max-w-sm sm:max-w-none"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
             >
               <Link
                 to="/blogs"
-                className="bg-purple-600 px-6 py-3 rounded-xl font-semibold hover:bg-purple-700 transition"
+                className="bg-purple-600 px-6 py-3 rounded-xl font-semibold hover:bg-purple-700 transition text-center"
               >
                 Explore Blogs
               </Link>
 
               <Link
                 to="/register"
-                className="bg-gray-900 px-6 py-3 rounded-xl font-semibold hover:bg-gray-800 transition"
+                className="bg-gray-900 px-6 py-3 rounded-xl font-semibold hover:bg-gray-800 transition text-center"
               >
                 Join Now
               </Link>
@@ -124,12 +124,12 @@ export default function ImageSliderHero() {
       </AnimatePresence>
 
       {/* Slider Dots */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3">
+      <div className="absolute bottom-4 md:bottom-6 left-1/2 -translate-x-1/2 flex gap-2 md:gap-3">
         {slides.map((slide, index) => (
           <button
             key={slide.id}
             onClick={() => setCurrentIndex(index)}
-            className={`w-3 h-3 rounded-full transition ${
+            className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition ${
               index === currentIndex ? "bg-purple-500" : "bg-gray-400"
             }`}
           ></button>

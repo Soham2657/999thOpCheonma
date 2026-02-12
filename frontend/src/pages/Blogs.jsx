@@ -37,17 +37,17 @@ export default function Blogs() {
     fetchBlogs();
     },[search, category]);
     return(
-      <div className="min-h-screen bg-gray-950 text-white p-6">
-      <h1 className="text-3xl font-bold">Blogs</h1>
+      <div className="min-h-screen bg-gray-950 text-white p-4 md:p-6">
+      <h1 className="text-2xl md:text-3xl font-bold">Blogs</h1>
 
       {search && (
-        <p className="text-gray-400 mt-2">
+        <p className="text-gray-400 mt-2 text-sm md:text-base">
           Showing results for: <span className="text-purple-400">{search}</span>
         </p>
       )}
 
       {category && (
-        <p className="text-gray-400 mt-2">
+        <p className="text-gray-400 mt-2 text-sm md:text-base">
           Category: <span className="text-purple-400">{category}</span>
         </p>
       )}

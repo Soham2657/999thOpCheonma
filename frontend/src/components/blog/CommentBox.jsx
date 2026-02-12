@@ -69,7 +69,7 @@ const handleDelete=async(commentId)=>{
 };
 return (
     <div className="mt-10">
-      <h2 className="text-2xl font-bold mb-4">Comments</h2>
+      <h2 className="text-xl md:text-2xl font-bold mb-4">Comments</h2>
 
       {/* If user not logged in, show login message */}
       {!user && (
@@ -83,11 +83,11 @@ return (
             value={commentText}
             onChange={(e) => setCommentText(e.target.value)}
             placeholder="Write your comment..."
-            className="w-full bg-gray-900 text-white p-3 rounded-xl outline-none"
+            className="w-full bg-gray-900 text-white p-3 rounded-xl outline-none text-sm md:text-base"
             rows={4}
           ></textarea>
 
-          <button className="mt-3 bg-purple-600 px-6 py-2 rounded-xl hover:bg-purple-700">
+          <button className="mt-3 bg-purple-600 px-6 py-2 rounded-xl hover:bg-purple-700 w-full sm:w-auto">
             Post Comment
           </button>
         </form>

@@ -34,13 +34,13 @@ export default function AdminDashboard() {
       setBlogs((prev) => prev.filter((blog) => blog._id !== blogId));
     };
 
-    return(<div className="min-h-screen bg-gray-950 text-white p-6">
-      <div className="flex justify-between items-center">
-        <h1 className="text-3xl font-bold">Admin Dashboard</h1>
+    return(<div className="min-h-screen bg-gray-950 text-white p-4 md:p-6">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        <h1 className="text-2xl md:text-3xl font-bold">Admin Dashboard</h1>
 
         <Link
           to="/admin/create-blog"
-          className="bg-purple-600 px-5 py-2 rounded-xl hover:bg-purple-700"
+          className="bg-purple-600 px-5 py-2 rounded-xl hover:bg-purple-700 whitespace-nowrap"
         >
           + Create Blog
         </Link>
